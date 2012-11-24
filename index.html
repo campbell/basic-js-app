@@ -20,6 +20,20 @@
 				<ul id="todo-list"></ul>
 			</section>
 		</section>
+
+		<script type='text/javascript'>
+		  $(document).ready( function(){
+			  $('#new-todo-form').on('submit', addTodo);
+			});
+
+		  var addTodo = function(){ 
+		  	var value = $('#new-todo').val();
+		  	alert('Todo is ' + value);
+		  	$('#new-todo').val('');
+		  	return false;
+		  };
+		</script>
+
 	</body>
 
 </html>
