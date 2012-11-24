@@ -3,9 +3,9 @@
 	<head>
 		<title>Todos</title>
   	<link rel="stylesheet" href="base.css">
+  	<script src='jquery.js'></script>
   	<script src='underscore-min.js'></script>
   	<script src='backbone-min.js'></script>
-  	<script src='jquery.js'></script>
 	</head>
 
 	<body>
@@ -29,12 +29,21 @@
 		  var addTodo = function(){ 
 		  	var value = $('#new-todo').val();
 		  	var new_todo = new Todo({ value: value});
-		  	$('#todo-list').append("<li>" + value + "</li>");
+		  	var html = new TodoView({model: new_todo});
+		  	$('#todo-list').append(html.render().el);
 		  	$('#new-todo').val('');
 		  	return false;
 		  };
 
 		  var Todo = Backbone.Model.extend({});
+		  var TodoView = Backbone.View.extend({
+		  	tagName: 'li',
+		  	render: function(){
+		  		var html = this.model.get('value');
+		  		this.$el.html(html);
+		  		return this;
+		  	}
+		  });
 
 		</script>
 
