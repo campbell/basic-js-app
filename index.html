@@ -28,10 +28,14 @@
 
 		  var addTodo = function(){ 
 		  	var value = $('#new-todo').val();
-		  	alert('Todo is ' + value);
+		  	var new_todo = new Todo({ value: value});
+		  	$('#todo-list').append("<li>" + value + "</li>");
 		  	$('#new-todo').val('');
 		  	return false;
 		  };
+
+		  var Todo = Backbone.Model.extend({});
+
 		</script>
 
 	</body>
