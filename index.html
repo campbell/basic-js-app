@@ -39,12 +39,17 @@
 		  var TodoView = Backbone.View.extend({
 		  	tagName: 'li',
 		  	render: function(){
-		  		var html = _.template("Todo item - <%= val %>", {val: this.model.get('value')});
+		  		var template_str = $("script[type='x/my-template']").html();
+		  		var html = _.template(template_str, {val: this.model.get('value')});
 		  		this.$el.html(html);
 		  		return this;
 		  	}
 		  });
 
+		</script>
+
+		<script type='x/my-template'>
+		  Todo item - <%= val %>
 		</script>
 
 	</body>
